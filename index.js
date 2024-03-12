@@ -92,22 +92,18 @@ document.addEventListener("keydown", (event) => {
   switch (event.key) {
     case "ArrowRight":
       if (nextCellIsAWall(playerPosition + 1)) return
-      // if ((playerPosition + 1) % 15 === 0) return
       move("right")
       break
     case "ArrowLeft":
       if (nextCellIsAWall(playerPosition - 1)) return
-      // if (playerPosition % 15 === 0) return
       move("left")
       break
     case "ArrowDown":
       if (nextCellIsAWall(playerPosition + movementY)) return
-      // if (playerPosition >= 190) return
       move("down")
       break
     case "ArrowUp":
       if (nextCellIsAWall(playerPosition - movementY)) return
-      // if (playerPosition < 15) return
       move("up")
       break
   }
@@ -172,25 +168,21 @@ function move(direction) {
 
   switch (direction) {
     case "right":
-      // if (nextCellIsAWall(playerPosition + 1) || (playerPosition + 1) % 15 === 0) return;
       hidePlayer()
       playerPosition++
       displayPlayer()
       break
     case "left":
-      // if (nextCellIsAWall(playerPosition - 1) || playerPosition % 15 === 0) return;
       hidePlayer()
       playerPosition--
       displayPlayer()
       break
     case "up":
-      // if (nextCellIsAWall(playerPosition - 15) || playerPosition < 15) return;
       hidePlayer()
       playerPosition -= movementY
       displayPlayer()
       break
     case "down":
-      // if (nextCellIsAWall(playerPosition + movementY) || playerPosition >= 190) return;
       hidePlayer()
       playerPosition += movementY
       displayPlayer()
@@ -209,5 +201,8 @@ function move(direction) {
 }
 
 function theGameIsFinished() {
+  if (cells[playerPosition].classList.contains("finish") && keyFound === false) {
+    console.log("You need the key to exit")
+  }
   return cells[playerPosition].classList.contains("finish") && keyFound;
 }
