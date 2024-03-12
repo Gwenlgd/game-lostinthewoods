@@ -1,3 +1,14 @@
+
+if (score >= 0 && foundTheKey()) {
+  console.log("Game finished")
+  theGameIsFinished()
+  level++
+  modal.showModal()
+}
+if (score < 0) {
+  console.log("Game Over");
+}
+
 var Position = function (x, y) {
   this.x = x;
   this.y = y;

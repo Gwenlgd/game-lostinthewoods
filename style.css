@@ -18,11 +18,10 @@ dialog::backdrop {
   border: 1px solid black;
 }
 
-/* .cell {
+.cell.small {
   height: 20px;
   width: 20px;
-  border: 1px solid black;
-} */
+}
 
 .wall {
   background-color: black;
@@ -40,6 +39,14 @@ dialog::backdrop {
   background-color: yellow;
 }
 
+.help {
+  background-color: green;
+}
+
 .villain {
   background-color: red;
+}
+
+.key {
+  background-color: chocolate;
 }
