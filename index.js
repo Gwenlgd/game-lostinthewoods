@@ -12,7 +12,8 @@ let cells = []
 let playerPosition = 0
 let level = 0
 let score = 200
-
+let keyFound = true
+let movementY = 15
 
 startButton.addEventListener("click", () => {
   welcomeSection.setAttribute("hidden", true)
@@ -36,6 +37,12 @@ function generateTheBoard() {
     const state = map[i]
     const div = document.createElement("div")
     div.classList.add("cell")
+    if (map.length > 210) {
+      div.classList.add("small")
+      movementY = 30
+    } else {
+      movementY = 15
+    }
     // div.textContent = i
     if (state === 1) {
       div.classList.add("wall")
@@ -50,7 +57,14 @@ function generateTheBoard() {
       div.classList.add("treasure")
     }
     if (state === 5) {
+      div.classList.add("help")
+    }
+    if (state === 6) {
       div.classList.add("villain")
+    }
+    if (state === 7) {
+      div.classList.add("key")
+      keyFound = false
     }
     gameContainer.append(div)
     cells.push(div)
@@ -78,22 +92,22 @@ document.addEventListener("keydown", (event) => {
   switch (event.key) {
     case "ArrowRight":
       if (nextCellIsAWall(playerPosition + 1)) return
-      if ((playerPosition + 1) % 15 === 0) return
+      // if ((playerPosition + 1) % 15 === 0) return
       move("right")
       break
     case "ArrowLeft":
       if (nextCellIsAWall(playerPosition - 1)) return
-      if (playerPosition % 15 === 0) return
+      // if (playerPosition % 15 === 0) return
       move("left")
       break
     case "ArrowDown":
-      if (nextCellIsAWall(playerPosition + 15)) return
-      if (playerPosition >= 190) return
+      if (nextCellIsAWall(playerPosition + movementY)) return
+      // if (playerPosition >= 190) return
       move("down")
       break
     case "ArrowUp":
-      if (nextCellIsAWall(playerPosition - 15)) return
-      if (playerPosition < 15) return
+      if (nextCellIsAWall(playerPosition - movementY)) return
+      // if (playerPosition < 15) return
       move("up")
       break
   }
@@ -108,8 +122,19 @@ function nextCellIsAWall(nextPosition) {
 
 function foundATreasure() {
   if (cells[playerPosition].classList.contains("treasure")) {
-    console.log("You find it");
+    console.log("You found it");
     cells[playerPosition].classList.remove("treasure");
+    // ?? check how many points
+    score += 15;
+    console.log("+ 15 points");
+    displayScore();
+  }
+}
+
+function foundHelp() {
+  if (cells[playerPosition].classList.contains("help")) {
+    console.log("Here is some help to get there");
+    cells[playerPosition].classList.remove("help");
     // ?? check how many points
     score += 10;
     console.log("+ 10 points");
@@ -129,36 +154,53 @@ function oopsVillain() {
   }
 }
 
+function foundTheKey() {
+  if (cells[playerPosition].classList.contains("key")) {
+    keyFound = true
+    console.log("You found the key");
+    cells[playerPosition].classList.remove("key");
+    // ?? check how many points
+    score += 25;
+    console.log("+ 25 points");
+    displayScore();
+  }
+}
+
 function move(direction) {
+  score -= 2;
+  displayScore();
+
   switch (direction) {
     case "right":
-      if (nextCellIsAWall(playerPosition + 1) || (playerPosition + 1) % 15 === 0) return;
+      // if (nextCellIsAWall(playerPosition + 1) || (playerPosition + 1) % 15 === 0) return;
       hidePlayer()
       playerPosition++
       displayPlayer()
       break
     case "left":
-      if (nextCellIsAWall(playerPosition - 1) || playerPosition % 15 === 0) return;
+      // if (nextCellIsAWall(playerPosition - 1) || playerPosition % 15 === 0) return;
       hidePlayer()
       playerPosition--
       displayPlayer()
       break
     case "up":
-      if (nextCellIsAWall(playerPosition - 15) || playerPosition < 15) return;
+      // if (nextCellIsAWall(playerPosition - 15) || playerPosition < 15) return;
       hidePlayer()
-      playerPosition -= 15
+      playerPosition -= movementY
       displayPlayer()
       break
     case "down":
-      if (nextCellIsAWall(playerPosition + 15) || playerPosition >= 190) return;
+      // if (nextCellIsAWall(playerPosition + movementY) || playerPosition >= 190) return;
       hidePlayer()
-      playerPosition += 15
+      playerPosition += movementY
       displayPlayer()
       break
   }
 
   foundATreasure();
-  oopsVillain()
+  foundHelp();
+  oopsVillain();
+  foundTheKey()
 
   if (theGameIsFinished()) {
     level++
@@ -167,5 +209,5 @@ function move(direction) {
 }
 
 function theGameIsFinished() {
-  return cells[playerPosition].classList.contains("finish")
+  return cells[playerPosition].classList.contains("finish") && keyFound;
 }
