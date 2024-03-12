@@ -6,10 +6,12 @@ const modal = document.querySelector("dialog")
 const startButton = document.getElementById("start-game")
 const gameContainer = document.getElementById("game")
 const restartButton = document.getElementById("restart-game")
+const scoreSection = document.getElementById("score")
 
 let cells = []
 let playerPosition = 0
 let level = 0
+let score = 200
 
 
 startButton.addEventListener("click", () => {
@@ -47,11 +49,15 @@ function generateTheBoard() {
     if (state === 4) {
       div.classList.add("treasure")
     }
+    if (state === 5) {
+      div.classList.add("villain")
+    }
     gameContainer.append(div)
     cells.push(div)
   }
   // console.log(cells)
   displayPlayer()
+  displayScore()
 }
 
 function displayPlayer() {
@@ -60,6 +66,10 @@ function displayPlayer() {
 
 function hidePlayer() {
   cells[playerPosition].classList.remove("player")
+}
+
+function displayScore() {
+  scoreSection.innerHTML = score
 }
 
 document.addEventListener("keydown", (event) => {
@@ -100,7 +110,22 @@ function foundATreasure() {
   if (cells[playerPosition].classList.contains("treasure")) {
     console.log("You find it");
     cells[playerPosition].classList.remove("treasure");
-    // ?? add the score if found it
+    // ?? check how many points
+    score += 10;
+    console.log("+ 10 points");
+    displayScore();
+  }
+}
+
+function oopsVillain() {
+  if (cells[playerPosition].classList.contains("villain")) {
+    console.log("Oops you encounter a villain");
+    cells[playerPosition].classList.remove("villain");
+    // ?? remove the score if found it or end of the game ?
+    // ?? check how many points
+    score -= 50;
+    console.log("-50 points");
+    displayScore();
   }
 }
 
@@ -133,6 +158,7 @@ function move(direction) {
   }
 
   foundATreasure();
+  oopsVillain()
 
   if (theGameIsFinished()) {
     level++
