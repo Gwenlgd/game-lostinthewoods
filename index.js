@@ -14,6 +14,7 @@ let level = 0
 let score = 200
 let keyFound = true
 let movementY = 15
+let gameActive = true
 
 startButton.addEventListener("click", () => {
   welcomeSection.setAttribute("hidden", true)
@@ -163,8 +164,10 @@ function foundTheKey() {
 }
 
 function move(direction) {
+  if (!gameActive) return
   score -= 2;
   displayScore();
+
 
   switch (direction) {
     case "right":
@@ -198,6 +201,7 @@ function move(direction) {
     level++
     modal.showModal()
   }
+  gameOver();
 }
 
 function theGameIsFinished() {
@@ -205,4 +209,14 @@ function theGameIsFinished() {
     console.log("You need the key to exit")
   }
   return cells[playerPosition].classList.contains("finish") && keyFound;
+}
+
+function gameOver() {
+  if (score <= 0) {
+    score = 0
+    gameActive = false;
+    console.log("Game Over! Your score is 0.");
+    // ??add a message when game over (in html ?)
+
+  }
 }
