@@ -61,6 +61,7 @@ function displayPlayer() {
 function hidePlayer() {
   cells[playerPosition].classList.remove("player")
 }
+
 document.addEventListener("keydown", (event) => {
   console.log(event.key)
   event.preventDefault()
@@ -95,6 +96,13 @@ function nextCellIsAWall(nextPosition) {
   return cells[nextPosition].classList.contains("wall");
 }
 
+function foundATreasure() {
+  if (cells[playerPosition].classList.contains("treasure")) {
+    console.log("You find it");
+    cells[playerPosition].classList.remove("treasure");
+    // ?? add the score if found it
+  }
+}
 
 function move(direction) {
   switch (direction) {
@@ -124,6 +132,7 @@ function move(direction) {
       break
   }
 
+  foundATreasure();
 
   if (theGameIsFinished()) {
     level++
@@ -133,11 +142,4 @@ function move(direction) {
 
 function theGameIsFinished() {
   return cells[playerPosition].classList.contains("finish")
-}
-
-if (findATreasure()) {
-  // add point to the score
-}
-function findATreasure() {
-  return cells[playerPosition].classList.contains("treasure")
 }
