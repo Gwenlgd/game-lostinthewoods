@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+dialog::backdrop {
+  backdrop-filter: blur(2px) sepia(0.2);
+}
+
+#game {
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+  /* height: 560px; */
+}
+.cell {
+  height: 40px;
+  width: 40px;
+  border: 1px solid black;
+}
+
+/* .cell {
+  height: 20px;
+  width: 20px;
+  border: 1px solid black;
+} */
+
+.wall {
+  background-color: black;
+}
+
+.finish {
+  background-color: aqua;
+}
+
+.player {
+  background-color: blueviolet;
+}
+
+.treasure {
+  background-color: yellow;
+}
