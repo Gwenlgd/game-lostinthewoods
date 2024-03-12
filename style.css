@@ -39,3 +39,7 @@ dialog::backdrop {
 .treasure {
   background-color: yellow;
 }
+
+.villain {
+  background-color: red;
+}
