@@ -32,11 +32,6 @@ dialog::backdrop {
   width: 20px;
 }
 
-.wall {
-  /* background-color: black; */
-  background-image: url(./images/trees/tree2.svg);
-}
-
 .finish {
   background-color: aqua;
 }
