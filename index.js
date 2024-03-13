@@ -58,6 +58,7 @@ function generateTheBoard() {
     }
     if (state === 2) {
       playerPosition = i
+      div.classList.add("entry")
     }
     if (state === 3) {
       div.classList.add("finish")
@@ -69,7 +70,11 @@ function generateTheBoard() {
       div.classList.add("help")
     }
     if (state === 6) {
-      div.classList.add("villain")
+      // !! can show twice the same svg, change it ?
+      const numSVGs = getRandomInt(1, 3);
+      div.classList.add(`villain` + numSVGs);
+      // div.classList.add("villain")
+      console.log(`villain` + numSVGs)
     }
     if (state === 7) {
       div.classList.add("key")
@@ -83,11 +88,17 @@ function generateTheBoard() {
   displayScore()
 }
 
-
-
-
-function displayPlayer() {
+function displayPlayer(move) {
   cells[playerPosition].classList.add("player")
+  if (move === "up" || move === "down") {
+    cells[playerPosition].classList.add("player")
+  }
+  if (move === "right") {
+    cells[playerPosition].classList.add("right");
+  }
+  if (move === "left") {
+    cells[playerPosition].classList.add("left");
+  }
 }
 
 function hidePlayer() {
@@ -151,9 +162,11 @@ function foundHelp() {
 }
 
 function oopsVillain() {
-  if (cells[playerPosition].classList.contains("villain")) {
+  const villains = ["villain1", "villain2", "villain3", "villain4"];
+
+  if (villains.some(villain => cells[playerPosition].classList.contains(villain))) {
     console.log("Oops you encounter a villain");
-    cells[playerPosition].classList.remove("villain");
+    villains.forEach(villain => cells[playerPosition].classList.remove(villain));
     // ?? remove the score if found it or end of the game ?
     // ?? check how many points
     score -= 50;
@@ -184,22 +197,22 @@ function move(direction) {
     case "right":
       hidePlayer()
       playerPosition++
-      displayPlayer()
+      displayPlayer("right")
       break
     case "left":
       hidePlayer()
       playerPosition--
-      displayPlayer()
+      displayPlayer("left")
       break
     case "up":
       hidePlayer()
       playerPosition -= movementY
-      displayPlayer()
+      displayPlayer("up")
       break
     case "down":
       hidePlayer()
       playerPosition += movementY
-      displayPlayer()
+      displayPlayer("down")
       break
   }
 

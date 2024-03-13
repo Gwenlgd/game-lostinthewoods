@@ -30,7 +30,7 @@ dialog::backdrop {
 .cell {
   height: 40px;
   width: 40px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .cell.small {
@@ -38,6 +38,7 @@ dialog::backdrop {
   width: 20px;
 }
 
+/* !! VERIF SIZE WHEN SMALLER CELLS */
 .wall1 {
   background-image: url(./images/trees/tree1.svg);
 }
@@ -68,23 +69,47 @@ dialog::backdrop {
 }
 
 .finish {
-  background-color: aqua;
+  background-image: url(./images/other/exit.svg);
 }
-
+.entry {
+  /* ??Possible to keep the svg if player in this cell? */
+  background-image: url(./images/other/entry.svg);
+}
 .player {
-  background-color: blueviolet;
+  background-image: url(./images/player/player.svg);
+}
+.player.left {
+  background-image: url(./images/player/player_left.svg);
+}
+.player.right {
+  background-image: url(./images/player/player_right.svg);
 }
 
-.treasure {
-  background-color: yellow;
+.treasure1 {
+  background-image: url(./images/other/treasure_1.svg);
+}
+.treasure2 {
+  background-image: url(./images/other/treasure_2.svg);
+}
+.treasure3 {
+  background-image: url(./images/other/treasure_3.svg);
+}
+.treasure4 {
+  background-image: url(./images/other/treasure_4.svg);
 }
 
 .help {
   background-color: green;
 }
 
-.villain {
-  background-color: red;
+.villain1 {
+  background-image: url(./images/other/villain.svg);
+}
+.villain2 {
+  background-image: url(./images/other/villain_2.svg);
+}
+.villain3 {
+  background-image: url(./images/other/villain_3.svg);
 }
 
 .key {
