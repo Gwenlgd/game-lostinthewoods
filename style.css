@@ -19,6 +19,12 @@ dialog::backdrop {
   display: flex;
   flex-wrap: wrap;
   width: 600px;
+  /* background: rgb(253,235,216); */
+  background: radial-gradient(
+    circle,
+    rgba(253, 235, 216, 1) 0%,
+    rgba(252, 222, 190, 1) 100%
+  );
   /* height: 560px; */
 }
 .cell {
@@ -32,9 +38,33 @@ dialog::backdrop {
   width: 20px;
 }
 
-.wall {
-  /* background-color: black; */
+.wall1 {
+  background-image: url(./images/trees/tree1.svg);
+}
+/* Trop foncé? */
+.wall2 {
   background-image: url(./images/trees/tree2.svg);
+}
+.wall3 {
+  background-image: url(./images/trees/tree3.svg);
+}
+.wall4 {
+  background-image: url(./images/trees/tree4.svg);
+}
+.wall5 {
+  background-image: url(./images/trees/tree5.svg);
+}
+.wall6 {
+  background-image: url(./images/trees/tree6.svg);
+}
+.wall7 {
+  background-image: url(./images/trees/tree7.svg);
+}
+.wall8 {
+  background-image: url(./images/trees/tree8.svg);
+}
+.wall9 {
+  background-image: url(./images/trees/tree9.svg);
 }
 
 .finish {

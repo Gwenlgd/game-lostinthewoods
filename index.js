@@ -18,7 +18,7 @@ let keyFound = true
 let movementY = 15
 let gameActive = true
 
-// !! UNCOMMENT WHEN DESIGN
+// !! UNCOMMENT WHEN DESIGN OK
 // startButton.addEventListener("click", () => {
 //   welcomeSection.setAttribute("hidden", true)
 scoreContainer.removeAttribute("hidden")
@@ -53,7 +53,8 @@ function generateTheBoard() {
     }
     // div.textContent = i
     if (state === 1) {
-      div.classList.add("wall")
+      const numSVGs = getRandomInt(1, 9);
+      div.classList.add(`wall` + numSVGs);
     }
     if (state === 2) {
       playerPosition = i
@@ -81,6 +82,9 @@ function generateTheBoard() {
   displayPlayer()
   displayScore()
 }
+
+
+
 
 function displayPlayer() {
   cells[playerPosition].classList.add("player")
@@ -121,7 +125,7 @@ function nextCellIsAWall(nextPosition) {
   if (nextPosition < 0 || nextPosition >= cells.length) {
     return true;
   }
-  return cells[nextPosition].classList.contains("wall");
+  return ["wall1", "wall2", "wall3", "wall4", "wall5", "wall6", "wall7", "wall8", "wall9"].some(wall => cells[nextPosition].classList.contains(wall));
 }
 
 function foundATreasure() {
@@ -209,6 +213,11 @@ function move(direction) {
     modal.showModal()
   }
   gameOver();
+}
+
+// to add a number for the cell wall. Going to change the tree in a random way
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function theGameIsFinished() {
