@@ -1,11 +1,18 @@
 import maps from "./map.js"
 
+// !! ADD function help, show the way in a toggle button ?
+
 const welcomeSection = document.getElementById("welcome-section")
 const gameSection = document.getElementById("game-section")
-const modal = document.querySelector("dialog")
+const modalNextLevel = document.getElementById("dialog-level")
+// const modalFinish = document.querySelector("dialog-finish")
+const modalTreasure = document.getElementById("dialog-treasure")
+const modalVillains = document.getElementById("dialog-villains")
+// const modalHelp = document.getElementById("dialog-help")
 const startButton = document.getElementById("start-game")
 const gameContainer = document.getElementById("game")
-const restartButton = document.getElementById("restart-game")
+// const restartButton = document.getElementById("restart-game")
+const nextLevelButton = document.getElementById("next-level")
 const scoreContainer = document.getElementById("score-container")
 const scoreSection = document.getElementById("score")
 const pointsContainer = document.getElementById("points-rules")
@@ -27,13 +34,27 @@ pointsContainer.removeAttribute("hidden")
 generateTheBoard()
 // })
 
-restartButton.addEventListener("click", restartTheGame)
+// restartButton.addEventListener("click", restartTheGame)
+nextLevelButton.addEventListener("click", goToNextLevel)
 
-function restartTheGame() {
+function closeDialogAfterDelay(dialog, delay) {
+  setTimeout(function () {
+    dialog.close();
+  }, delay);
+}
+
+// function restartTheGame() {
+//   playerPosition = 0
+//   cells = []
+//   gameContainer.innerHTML = ""
+//   modal.close()
+//   generateTheBoard()
+// }
+function goToNextLevel() {
   playerPosition = 0
   cells = []
   gameContainer.innerHTML = ""
-  modal.close()
+  modalNextLevel.close()
   generateTheBoard()
 }
 
@@ -71,7 +92,7 @@ function generateTheBoard() {
       div.classList.add("help")
     }
     if (state === 6) {
-      // !! can show twice the same svg, change it ?
+      // !! can show twice the same svg, way to improve it ?
       const numSVGs = getRandomInt(1, 3);
       div.classList.add(`villain` + numSVGs);
     }
@@ -145,8 +166,10 @@ function foundATreasure() {
     treasures.forEach(treasure => cells[playerPosition].classList.remove(treasure));
     // ?? check how many points
     score += 15;
-    console.log("+ 15 points");
     displayScore();
+    //? add the svg displayed for this treasure
+    modalTreasure.showModal()
+    closeDialogAfterDelay(modalTreasure, 1500)
   }
 }
 
@@ -170,8 +193,9 @@ function oopsVillain() {
     // ?? remove the score if found it or end of the game ?
     // ?? check how many points
     score -= 50;
-    console.log("-50 points");
     displayScore();
+    modalVillains.showModal()
+    closeDialogAfterDelay(modalVillains, 1500)
   }
 }
 
@@ -223,7 +247,7 @@ function move(direction) {
 
   if (theGameIsFinished()) {
     level++
-    modal.showModal()
+    modalNextLevel.showModal()
   }
   gameOver();
 }
@@ -246,6 +270,5 @@ function gameOver() {
     gameActive = false;
     console.log("Game Over! Your score is 0.");
     // ??add a message when game over (in html ?)
-
   }
 }

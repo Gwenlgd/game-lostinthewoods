@@ -36,11 +36,33 @@
       </div>
     </section>
 
-    <dialog>
-      <p>Congrats on finishing the game</p>
+    <dialog id="dialog-treasure">
+      <!-- show the svg of the treasure? -->
+      <p>Treasure found! Well done, adventurer!</p>
+      <p>+ 15 points</p>
+    </dialog>
+    <dialog id="dialog-villains">
+      <!-- show the svg of the treasure? -->
+      <p>Looks like we've got company!</p>
+      <p>- 50 points</p>
+    </dialog>
+    <dialog id="dialog-help">
+      <!-- show the svg of the treasure? -->
+      <p>Resources secured, let's make good use of them!</p>
+      <p>+ 10 points</p>
+    </dialog>
+    <dialog id="dialog-level">
+      <p>Congrats, -nameofthehero- found is way out!</p>
       <p>Your score: <span></span></p>
 
-      <button id="restart-game">Restart</button>
+      <button id="next-level">Next Level</button>
+      <button id="end-game">Quit</button>
+    </dialog>
+
+    <dialog id="dialog-finish">
+      <p>Congrats, you have finished !</p>
+      <!-- <p>Your score: <span></span></p> -->
+      <button id="end-game">Quit</button>
     </dialog>
   </body>
 </html>
