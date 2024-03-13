@@ -64,7 +64,8 @@ function generateTheBoard() {
       div.classList.add("finish")
     }
     if (state === 4) {
-      div.classList.add("treasure")
+      const numSVGs = getRandomInt(1, 4);
+      div.classList.add(`treasure` + numSVGs);
     }
     if (state === 5) {
       div.classList.add("help")
@@ -73,8 +74,6 @@ function generateTheBoard() {
       // !! can show twice the same svg, change it ?
       const numSVGs = getRandomInt(1, 3);
       div.classList.add(`villain` + numSVGs);
-      // div.classList.add("villain")
-      console.log(`villain` + numSVGs)
     }
     if (state === 7) {
       div.classList.add("key")
@@ -140,9 +139,10 @@ function nextCellIsAWall(nextPosition) {
 }
 
 function foundATreasure() {
-  if (cells[playerPosition].classList.contains("treasure")) {
+  const treasures = ["treasure1", "treasure2", "treasure3", "treasure4"];
+  if (treasures.some(treasure => cells[playerPosition].classList.contains(treasure))) {
     console.log("You found it");
-    cells[playerPosition].classList.remove("treasure");
+    treasures.forEach(treasure => cells[playerPosition].classList.remove(treasure));
     // ?? check how many points
     score += 15;
     console.log("+ 15 points");
