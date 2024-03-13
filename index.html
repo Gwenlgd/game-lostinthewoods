@@ -11,7 +11,7 @@
     <header>
       <h1>Game title</h1>
     </header>
-    <section id="welcome-section">
+    <!-- <section id="welcome-section">
       <ul>
         <li>Rule-1</li>
         <li>Rule-2</li>
@@ -20,13 +20,20 @@
       </ul>
 
       <button id="start-game">Play</button>
-    </section>
+    </section> -->
 
     <!-- !! check because after adding points rules, score and PR are shown on the first page -->
     <section hidden id="game-section">
-      <p>Score: <span id="score"></span></p>
-      <div id="game"></div>
-      <div id="points-rules">Points Rules</div>
+      <div hidden id="score-container">
+        <p>Score: <span id="score"></span></p>
+      </div>
+      <!-- Works without hidding game-div at first and then make it visible. -->
+      <div id="game-div">
+        <div id="game"></div>
+      </div>
+      <div id="points-container">
+        <div hidden id="points-rules">Points Rules</div>
+      </div>
     </section>
 
     <dialog>

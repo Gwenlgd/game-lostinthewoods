@@ -6,7 +6,9 @@ const modal = document.querySelector("dialog")
 const startButton = document.getElementById("start-game")
 const gameContainer = document.getElementById("game")
 const restartButton = document.getElementById("restart-game")
+const scoreContainer = document.getElementById("score-container")
 const scoreSection = document.getElementById("score")
+const pointsContainer = document.getElementById("points-rules")
 
 let cells = []
 let playerPosition = 0
@@ -16,11 +18,14 @@ let keyFound = true
 let movementY = 15
 let gameActive = true
 
-startButton.addEventListener("click", () => {
-  welcomeSection.setAttribute("hidden", true)
-  gameSection.removeAttribute("hidden")
-  generateTheBoard()
-})
+// !! UNCOMMENT WHEN DESIGN
+// startButton.addEventListener("click", () => {
+//   welcomeSection.setAttribute("hidden", true)
+scoreContainer.removeAttribute("hidden")
+gameSection.removeAttribute("hidden")
+pointsContainer.removeAttribute("hidden")
+generateTheBoard()
+// })
 
 restartButton.addEventListener("click", restartTheGame)
 
