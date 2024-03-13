@@ -6,6 +6,11 @@ dialog::backdrop {
   backdrop-filter: blur(2px) sepia(0.2);
 }
 
+/* #game-section {
+  display: flex;
+  justify-content: space-around;
+} */
+
 #game {
   display: flex;
   flex-wrap: wrap;

@@ -41,6 +41,8 @@ function generateTheBoard() {
     if (map.length > 210) {
       div.classList.add("small")
       movementY = 30
+      // Working? More steps?
+      score = 1000
     } else {
       movementY = 15
     }
