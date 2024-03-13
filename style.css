@@ -6,10 +6,14 @@ dialog::backdrop {
   backdrop-filter: blur(2px) sepia(0.2);
 }
 
-/* #game-section {
+#game-section {
   display: flex;
   justify-content: space-around;
-} */
+}
+
+#game-div {
+  padding: 20px;
+}
 
 #game {
   display: flex;
@@ -29,7 +33,8 @@ dialog::backdrop {
 }
 
 .wall {
-  background-color: black;
+  /* background-color: black; */
+  background-image: url(./images/trees/tree2.svg);
 }
 
 .finish {
