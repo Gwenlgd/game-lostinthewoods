@@ -1,4 +1,26 @@
+// function foundTheKey() {
+//   const keys = ["key1", "key2", "key3", "key4"];
 
+//   if (keys.some(key => cells[playerPosition].classList.contains(key))) {
+//     keyFound = true
+//     console.log("Yay you found the key");
+//     keys.forEach(key => cells[playerPosition].classList.remove(key));
+//     // ?? check how many points
+//     score += 25;
+//     console.log("+ 25 points");
+//     displayScore();
+//     modalKeyFound.showModal()
+//     closeDialogAfterDelay(modalKeyFound, 1000)
+//   }
+// }
+
+///////
+
+nextLevelButton.addEventListener("click", function () {
+  console.log("Button next level clicked");
+  goToNextLevel();
+})
+//////////
 if (score >= 0 && foundTheKey()) {
   console.log("Game finished")
   theGameIsFinished()

@@ -1,4 +1,11 @@
 /* KEYS = backpack */
+.key1,
+.key2,
+.key3,
+.key4 {
+  background-size: cover;
+}
+
 .key1 {
   background-image: url(../images/keys/key_5.svg);
 }

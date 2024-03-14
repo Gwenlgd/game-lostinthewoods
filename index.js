@@ -16,11 +16,14 @@ const modalEndGame = document.getElementById("dialog-endgame")
 const modalGameOver = document.getElementById("dialog-gameover")
 const modalTreasure = document.getElementById("dialog-treasure")
 const modalVillains = document.getElementById("dialog-villains")
+const modalKeyNeeded = document.getElementById("key-needed")
 const modalKeyFound = document.getElementById("dialog-key")
 const modalHelp = document.getElementById("dialog-help")
 // BUTTONS
 const startButton = document.getElementById("start-game")
+const backHomeButton = document.getElementById("back-home")
 const endButton = document.getElementById("end-game")
+const quitGame = document.getElementById("quit-game")
 const gameContainer = document.getElementById("game")
 const restartButton = document.getElementById("restart-game")
 const nextLevelButton = document.getElementById("next-level")
@@ -30,7 +33,8 @@ let cells = []
 let playerPosition = 0
 let level = 0
 // !! reput the right starter score
-let score = 200
+let score = 5
+let previousScore = score
 let keyFound = true
 let movementY = 15
 let gameActive = true
@@ -46,13 +50,14 @@ startButton.addEventListener("click", () => {
   generateTheBoard()
 })
 
-// endButton.addEventListener("click", gameOver) => {
-//   !! here or in function endTheGame?
-//    welcomeSection.removeAttribute("hidden")
-//   scoreContainer.setAttribute("hidden", true)
-//   gameSection.setAttribute("hidden", true)
-//   pointsContainer.setAttribute("hidden", true)
-// }
+quitGame.addEventListener("click", function () {
+  modalGameOver.close()
+  // !!here or in function endTheGame? or go to a new page : Goodbye page ?
+  welcomeSection.removeAttribute("hidden")
+  scoreContainer.setAttribute("hidden", true)
+  gameSection.setAttribute("hidden", true)
+  pointsContainer.setAttribute("hidden", true)
+})
 
 nextLevelButton.addEventListener("click", goToNextLevel)
 
@@ -60,6 +65,7 @@ restartButton.addEventListener("click", function () {
   console.log("Restart button clicked");
   restartTheGame();
 })
+
 
 
 // !! Check
@@ -83,7 +89,8 @@ function closeDialogAfterDelay(dialog, delay) {
 }
 
 function restartTheGame() {
-  modalGameOver.showModal()
+  score = previousScore
+  gameActive = true
   playerPosition = 0
   cells = []
   gameContainer.innerHTML = ""
@@ -104,6 +111,7 @@ function goToNextLevel() {
 
 function generateTheBoard() {
   const map = maps[level]
+  // score += 5
   for (let i = 0; i < map.length; i++) {
     const state = map[i]
     const div = document.createElement("div")
@@ -112,7 +120,7 @@ function generateTheBoard() {
       div.classList.add("small")
       movementY = 30
       // Working? More steps?
-      score = 1000
+      // score = 1000
     } else {
       movementY = 15
     }
@@ -314,30 +322,39 @@ function move(direction) {
 
   if (theGameIsFinished()) {
     level++
+    previousScore = score
+    if (level === maps.length) {
+      modalFinish.showModal()
+      return
+    }
     modalNextLevel.showModal()
   }
   gameOver();
 }
 
-// to add a number for the cell wall. Going to change the tree in a random way
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function theGameIsFinished() {
-  if (cells[playerPosition].classList.contains("finish") && keyFound === false) {
+  const exits = ["finish1", "finish2", "finish3"];
+  const itsAnExit = exits.find(exit => cells[playerPosition].classList.contains(exit));
+  if (itsAnExit && keyFound === false) {
     console.log("You need the key to exit")
+    modalKeyNeeded.showModal();
+    closeDialogAfterDelay(modalKeyNeeded, 1000)
+    return false
+  } else if (itsAnExit && keyFound) {
+    return true
   }
-  return cells[playerPosition].classList.contains("finish") && keyFound;
 }
 
 function gameOver() {
-
   if (score <= 0) {
     console.log("Score is zero or negative");
-    score = 0
+    // score = 5
     gameActive = false;
     modalGameOver.showModal()    // ??add a message when game over (in html ?)
-    // restartTheGame();
+
   }
 }
