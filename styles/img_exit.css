@@ -1,0 +1,17 @@
+.finish1,
+.finish2,
+.finish3 {
+  background-size: cover;
+}
+.finish1 {
+  background-image: url(../images/other/exit_4.svg);
+  background-size: cover;
+}
+
+.finish2 {
+  background-image: url(../images/other/exit_5.svg);
+}
+
+.finish3 {
+  background-image: url(../images/other/exit_6.svg);
+}
