@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./index.css" />
     <script type="module" src="./index.js"></script>
   </head>
   <body>
@@ -36,29 +36,62 @@
       </div>
     </section>
 
+    <!-- TREASURES MESSAGE -->
     <dialog id="dialog-treasure">
       <!-- show the svg of the treasure? -->
       <p>Treasure found! Well done, adventurer!</p>
       <p>+ 15 points</p>
     </dialog>
+
+    <!-- KEY MESSAGE -->
+    <dialog id="dialog-key">
+      <!-- show the svg of the treasure? -->
+      <p>Yay you found the key</p>
+      <p>+ 25 points</p>
+    </dialog>
+
+    <!-- VILLAINS MESSAGE -->
     <dialog id="dialog-villains">
       <!-- show the svg of the treasure? -->
       <p>Looks like we've got company!</p>
       <p>- 50 points</p>
     </dialog>
+
+    <!-- HELP MESSAGE -->
     <dialog id="dialog-help">
       <!-- show the svg of the treasure? -->
       <p>Resources secured, let's make good use of them!</p>
       <p>+ 10 points</p>
     </dialog>
+
+    <!-- LEVEL MESSAGE -->
     <dialog id="dialog-level">
       <p>Congrats, -nameofthehero- found is way out!</p>
       <p>Your score: <span></span></p>
-
       <button id="next-level">Next Level</button>
       <button id="end-game">Quit</button>
     </dialog>
 
+    <!-- RESTART GAME MESSAGE -->
+    <dialog id="dialog-restart">
+      <p>New round ?</p>
+      <button id="restart-game">Restart</button>
+      <button id="end-game">Quit</button>
+    </dialog>
+
+    <!-- END GAME MESSAGE -->
+    <dialog id="dialog-endgame">
+      <p>See you next time !</p>
+    </dialog>
+
+    <!-- GAMEOVER MESSAGE -->
+    <dialog id="dialog-gameover">
+      <p>Game Over! Your score is 0.</p>
+      <button id="restart-game">Restart ?</button>
+      <button id="end-game">Quit</button>
+    </dialog>
+
+    <!-- FINISH MESSAGE -->
     <dialog id="dialog-finish">
       <p>Congrats, you have finished !</p>
       <!-- <p>Your score: <span></span></p> -->

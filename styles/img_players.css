@@ -1,0 +1,14 @@
+.player,
+.player.left,
+.player.right {
+  background-size: cover;
+}
+.player {
+  background-image: url(../images/player/player.svg);
+}
+.player.left {
+  background-image: url(../images/player/player_left.svg);
+}
+.player.right {
+  background-image: url(../images/player/player_right.svg);
+}

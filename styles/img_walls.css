@@ -1,0 +1,41 @@
+/* WALLS */
+.wall1,
+.wall2,
+.wall3,
+.wall4,
+.wall5,
+.wall6,
+.wall7,
+.wall8,
+.wall9 {
+  background-size: cover;
+}
+
+.wall1 {
+  background-image: url(../images/trees/tree1.svg);
+}
+/* Trop foncé? */
+.wall2 {
+  background-image: url(../images/trees/tree2.svg);
+}
+.wall3 {
+  background-image: url(../images/trees/tree3.svg);
+}
+.wall4 {
+  background-image: url(../images/trees/tree4.svg);
+}
+.wall5 {
+  background-image: url(../images/trees/tree5.svg);
+}
+.wall6 {
+  background-image: url(../images/trees/tree6.svg);
+}
+.wall7 {
+  background-image: url(../images/trees/tree7.svg);
+}
+.wall8 {
+  background-image: url(../images/trees/tree8.svg);
+}
+.wall9 {
+  background-image: url(../images/trees/tree9.svg);
+}

@@ -1,0 +1,18 @@
+.treasure1,
+.treasure2,
+.treasure3,
+.treasure4 {
+  background-size: cover;
+}
+.treasure1 {
+  background-image: url(../images/treasures/treasure_1.svg);
+}
+.treasure2 {
+  background-image: url(../images/treasures/treasure_2.svg);
+}
+.treasure3 {
+  background-image: url(../images/treasures/treasure_3.svg);
+}
+.treasure4 {
+  background-image: url(../images/treasures/treasure_4.svg);
+}
