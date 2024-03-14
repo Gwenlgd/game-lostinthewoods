@@ -1,0 +1,64 @@
+.board-points,
+.board-sco {
+  position: relative;
+}
+
+.card-sco h2 {
+  position: absolute;
+  top: 34.5%;
+  left: 11%;
+  color: white;
+}
+
+.card-point h2 {
+  position: absolute;
+  top: 34.5%;
+  right: 11%;
+  color: white;
+}
+
+#score {
+  font-size: 40px;
+  text-align: center;
+
+  /* FONCTIONNE PAS */
+  p {
+    text-align: center;
+    font-weight: bolder;
+  }
+}
+
+#points-infos {
+  display: block;
+  justify-content: center;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .board-points,
+  .board-sco {
+    width: 100%;
+    position: static;
+    margin-bottom: 20px;
+  }
+  .card-point h2 {
+    top: 50%;
+    right: 5%;
+  }
+  .card-point h2 {
+    top: 50%;
+    right: 5%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card-point h2 {
+    top: 70%;
+    right: 3%;
+  }
+
+  .card-point h2 {
+    top: 70%;
+    right: 3%;
+  }
+}

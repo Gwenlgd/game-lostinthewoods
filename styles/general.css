@@ -33,6 +33,9 @@ background: radial-gradient(
 * {
   box-sizing: border-box;
 }
+a {
+  text-decoration: none;
+}
 body {
   height: 90vh;
   /*? how to stop the repeat at the end of the page? height ok? */
@@ -48,26 +51,37 @@ body {
 #welcome-section {
   margin-top: 20px;
 }
-.welcome-background {
+.welcome-background,
+.goodbye-background {
   display: flex;
   justify-content: center;
 }
 
-.welcome-background img {
+.welcome-background img,
+.goodbye-background img {
   height: 90vh;
   display: flex;
   justify-content: center;
   position: relative;
+  border-radius: 10px;
 }
 
 .button-welcome {
   display: flex;
   justify-content: space-between;
   position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -35%);
+}
+
+/* .bye-title {
+  position: absolute;
   top: 35%;
   left: 50%;
   transform: translate(-35%, -35%);
-}
+  font-size: 2rem;
+} */
 
 dialog::backdrop {
   backdrop-filter: blur(2px) sepia(0.2);
@@ -83,6 +97,11 @@ dialog::backdrop {
   justify-content: center;
   top: 0;
 }
+
+#banner-game > #back-home svg {
+  margin-top: 40px;
+}
+
 #game-div {
   padding: 20px;
   scale: 1.1;
