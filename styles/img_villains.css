@@ -1,0 +1,14 @@
+.villain1,
+.villain2,
+.villain3 {
+  background-size: cover;
+}
+.villain1 {
+  background-image: url(../images/villains/villain.svg);
+}
+.villain2 {
+  background-image: url(../images/villains/villain_2.svg);
+}
+.villain3 {
+  background-image: url(../images/villains/villain_3.svg);
+}

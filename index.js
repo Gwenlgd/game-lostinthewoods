@@ -5,13 +5,17 @@ import maps from "./map.js"
 const welcomeSection = document.getElementById("welcome-section")
 const gameSection = document.getElementById("game-section")
 const modalNextLevel = document.getElementById("dialog-level")
-// const modalFinish = document.querySelector("dialog-finish")
+const modalFinish = document.getElementById("dialog-finish")
+const modalEndGame = document.getElementById("dialog-endgame")
+const modalGameOver = document.getElementById("dialog-gameover")
 const modalTreasure = document.getElementById("dialog-treasure")
 const modalVillains = document.getElementById("dialog-villains")
-// const modalHelp = document.getElementById("dialog-help")
+const modalKeyFound = document.getElementById("dialog-key")
+const modalHelp = document.getElementById("dialog-help")
 const startButton = document.getElementById("start-game")
+const endButton = document.getElementById("end-game")
 const gameContainer = document.getElementById("game")
-// const restartButton = document.getElementById("restart-game")
+const restartButton = document.getElementById("restart-game")
 const nextLevelButton = document.getElementById("next-level")
 const scoreContainer = document.getElementById("score-container")
 const scoreSection = document.getElementById("score")
@@ -20,7 +24,7 @@ const pointsContainer = document.getElementById("points-rules")
 let cells = []
 let playerPosition = 0
 let level = 0
-let score = 200
+let score = 5
 let keyFound = true
 let movementY = 15
 let gameActive = true
@@ -34,8 +38,26 @@ pointsContainer.removeAttribute("hidden")
 generateTheBoard()
 // })
 
-// restartButton.addEventListener("click", restartTheGame)
+// endButton.addEventListener("click", gameOver) => {
+//   !! here or in function endTheGame?
+//    welcomeSection.removeAttribute("hidden")
+//   scoreContainer.setAttribute("hidden", true)
+//   gameSection.setAttribute("hidden", true)
+//   pointsContainer.setAttribute("hidden", true)
+// }
+
+restartButton.addEventListener("click", restartTheGame);
 nextLevelButton.addEventListener("click", goToNextLevel)
+
+// !! Check
+function endTheGame() {
+  modalEndGame.close()
+  // !! Reactivate - HERE ?
+  //   welcomeSection.removeAttribute("hidden")
+  // scoreContainer.setAttribute("hidden", true)
+  // gameSection.setAttribute("hidden", true)
+  // pointsContainer.setAttribute("hidden", true)
+}
 
 function closeDialogAfterDelay(dialog, delay) {
   setTimeout(function () {
@@ -43,13 +65,15 @@ function closeDialogAfterDelay(dialog, delay) {
   }, delay);
 }
 
-// function restartTheGame() {
-//   playerPosition = 0
-//   cells = []
-//   gameContainer.innerHTML = ""
-//   modal.close()
-//   generateTheBoard()
-// }
+function restartTheGame() {
+  playerPosition = 0
+  cells = []
+  gameContainer.innerHTML = ""
+  modalGameOver.close()
+  console.log("Restart button clicked");
+  generateTheBoard()
+}
+
 function goToNextLevel() {
   playerPosition = 0
   cells = []
@@ -57,6 +81,8 @@ function goToNextLevel() {
   modalNextLevel.close()
   generateTheBoard()
 }
+
+
 
 function generateTheBoard() {
   const map = maps[level]
@@ -89,7 +115,8 @@ function generateTheBoard() {
       div.classList.add(`treasure` + numSVGs);
     }
     if (state === 5) {
-      div.classList.add("help")
+      const numSVGs = getRandomInt(1, 5);
+      div.classList.add(`help` + numSVGs);
     }
     if (state === 6) {
       // !! can show twice the same svg, way to improve it ?
@@ -97,7 +124,8 @@ function generateTheBoard() {
       div.classList.add(`villain` + numSVGs);
     }
     if (state === 7) {
-      div.classList.add("key")
+      const numSVGs = getRandomInt(1, 4);
+      div.classList.add(`key` + numSVGs);
       keyFound = false
     }
     gameContainer.append(div)
@@ -169,18 +197,20 @@ function foundATreasure() {
     displayScore();
     //? add the svg displayed for this treasure
     modalTreasure.showModal()
-    closeDialogAfterDelay(modalTreasure, 1500)
+    closeDialogAfterDelay(modalTreasure, 1000)
   }
 }
 
 function foundHelp() {
-  if (cells[playerPosition].classList.contains("help")) {
-    console.log("Here is some help to get there");
-    cells[playerPosition].classList.remove("help");
+  const helps = ["help1", "help2", "help3", "help4", "help5"];
+  if (helps.some(help => cells[playerPosition].classList.contains(help))) {
+    console.log("Resources secured, let's make good use of them!");
+    helps.forEach(help => cells[playerPosition].classList.remove(help));
     // ?? check how many points
     score += 10;
-    console.log("+ 10 points");
     displayScore();
+    modalHelp.showModal()
+    closeDialogAfterDelay(modalHelp, 1000)
   }
 }
 
@@ -195,19 +225,23 @@ function oopsVillain() {
     score -= 50;
     displayScore();
     modalVillains.showModal()
-    closeDialogAfterDelay(modalVillains, 1500)
+    closeDialogAfterDelay(modalVillains, 1000)
   }
 }
 
 function foundTheKey() {
-  if (cells[playerPosition].classList.contains("key")) {
+  const keys = ["key1", "key2", "key3", "key4"];
+
+  if (keys.some(key => cells[playerPosition].classList.contains(key))) {
     keyFound = true
-    console.log("You found the key");
-    cells[playerPosition].classList.remove("key");
+    console.log("Yay you found the key");
+    keys.forEach(key => cells[playerPosition].classList.remove(key));
     // ?? check how many points
     score += 25;
     console.log("+ 25 points");
     displayScore();
+    modalKeyFound.showModal()
+    closeDialogAfterDelay(modalKeyFound, 1000)
   }
 }
 
@@ -265,10 +299,12 @@ function theGameIsFinished() {
 }
 
 function gameOver() {
+  console.log("Game over"); // Add this line
+
   if (score <= 0) {
     score = 0
     gameActive = false;
-    console.log("Game Over! Your score is 0.");
-    // ??add a message when game over (in html ?)
+    modalGameOver.showModal()    // ??add a message when game over (in html ?)
+    restartTheGame();
   }
 }
