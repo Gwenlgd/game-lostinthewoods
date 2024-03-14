@@ -28,7 +28,7 @@ let cells = []
 let playerPosition = 0
 let level = 0
 // !! reput the right starter score
-let score = 5
+let score = 200
 let keyFound = true
 let movementY = 15
 let gameActive = true
@@ -72,6 +72,7 @@ function endTheGame() {
 
 function closeDialogAfterDelay(dialog, delay) {
   setTimeout(function () {
+    dialog.querySelector('.temp').remove()
     dialog.close();
   }, delay);
 }
@@ -201,16 +202,31 @@ function nextCellIsAWall(nextPosition) {
 
 function foundATreasure() {
   const treasures = ["treasure1", "treasure2", "treasure3", "treasure4"];
-  if (treasures.some(treasure => cells[playerPosition].classList.contains(treasure))) {
-    console.log("You found it");
-    treasures.forEach(treasure => cells[playerPosition].classList.remove(treasure));
+  const itsATreasure = treasures.find(treasure => cells[playerPosition].classList.contains(treasure))
+  // if (treasures.some(treasure => cells[playerPosition].classList.contains(treasure))) {
+  if (itsATreasure) {
+    console.log(itsATreasure);
+    // treasures.forEach(treasure => cells[playerPosition].classList.remove(treasure));
+    cells[playerPosition].classList.remove(itsATreasure);
+
     // ?? check how many points
     score += 15;
     displayScore();
     //? add the svg displayed for this treasure
-    modalTreasure.showModal()
+    // modalTreasure.showModal()
+    generateModal(modalTreasure, itsATreasure)
     closeDialogAfterDelay(modalTreasure, 1000)
   }
+}
+
+function generateModal(modal, image) {
+  const div = document.createElement('div')
+  div.classList.add(image, 'temp')
+  div.style.height = "100px"
+  div.style.width = "100px"
+  // img.src = `./images/${folder}/${image}.svg`
+  modal.append(div)
+  modal.showModal()
 }
 
 function foundHelp() {
