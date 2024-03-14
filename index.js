@@ -1,9 +1,13 @@
 import maps from "./map.js"
 
 // !! ADD function help, show the way in a toggle button ?
-
+//SECTIONS / CONTAINERS
 const welcomeSection = document.getElementById("welcome-section")
 const gameSection = document.getElementById("game-section")
+const scoreContainer = document.getElementById("score-container")
+const scoreSection = document.getElementById("score")
+const pointsContainer = document.getElementById("points-rules")
+// MODAL
 const modalNextLevel = document.getElementById("dialog-level")
 const modalFinish = document.getElementById("dialog-finish")
 const modalEndGame = document.getElementById("dialog-endgame")
@@ -12,31 +16,31 @@ const modalTreasure = document.getElementById("dialog-treasure")
 const modalVillains = document.getElementById("dialog-villains")
 const modalKeyFound = document.getElementById("dialog-key")
 const modalHelp = document.getElementById("dialog-help")
+// BUTTONS
 const startButton = document.getElementById("start-game")
 const endButton = document.getElementById("end-game")
 const gameContainer = document.getElementById("game")
 const restartButton = document.getElementById("restart-game")
 const nextLevelButton = document.getElementById("next-level")
-const scoreContainer = document.getElementById("score-container")
-const scoreSection = document.getElementById("score")
-const pointsContainer = document.getElementById("points-rules")
+
 
 let cells = []
 let playerPosition = 0
 let level = 0
+// !! reput the right starter score
 let score = 5
 let keyFound = true
 let movementY = 15
 let gameActive = true
 
 // !! UNCOMMENT WHEN DESIGN OK
-// startButton.addEventListener("click", () => {
-//   welcomeSection.setAttribute("hidden", true)
-scoreContainer.removeAttribute("hidden")
-gameSection.removeAttribute("hidden")
-pointsContainer.removeAttribute("hidden")
-generateTheBoard()
-// })
+startButton.addEventListener("click", () => {
+  welcomeSection.setAttribute("hidden", true)
+  scoreContainer.removeAttribute("hidden")
+  gameSection.removeAttribute("hidden")
+  pointsContainer.removeAttribute("hidden")
+  generateTheBoard()
+})
 
 // endButton.addEventListener("click", gameOver) => {
 //   !! here or in function endTheGame?
@@ -46,8 +50,15 @@ generateTheBoard()
 //   pointsContainer.setAttribute("hidden", true)
 // }
 
-restartButton.addEventListener("click", restartTheGame);
 nextLevelButton.addEventListener("click", goToNextLevel)
+
+restartButton.addEventListener("click", function () {
+  console.log("Restart button clicked");
+  restartTheGame();
+
+
+})
+
 
 // !! Check
 function endTheGame() {
@@ -66,12 +77,13 @@ function closeDialogAfterDelay(dialog, delay) {
 }
 
 function restartTheGame() {
+  modalGameOver.showModal()
   playerPosition = 0
   cells = []
   gameContainer.innerHTML = ""
   modalGameOver.close()
-  console.log("Restart button clicked");
   generateTheBoard()
+  console.log("Restart button clicked");
 }
 
 function goToNextLevel() {
@@ -299,12 +311,12 @@ function theGameIsFinished() {
 }
 
 function gameOver() {
-  console.log("Game over"); // Add this line
 
   if (score <= 0) {
+    console.log("Score is zero or negative");
     score = 0
     gameActive = false;
     modalGameOver.showModal()    // ??add a message when game over (in html ?)
-    restartTheGame();
+    // restartTheGame();
   }
 }
