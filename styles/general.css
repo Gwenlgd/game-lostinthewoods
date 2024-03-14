@@ -34,7 +34,7 @@ background: radial-gradient(
   box-sizing: border-box;
 }
 body {
-  height: 100vh;
+  height: 90vh;
   /*? how to stop the repeat at the end of the page? height ok? */
   background: radial-gradient(
     circle,
@@ -45,17 +45,47 @@ body {
   );
 }
 
+#welcome-section {
+  margin-top: 20px;
+}
+.welcome-background {
+  display: flex;
+  justify-content: center;
+}
+
+.welcome-background img {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.button-welcome {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-35%, -35%);
+}
+
 dialog::backdrop {
   backdrop-filter: blur(2px) sepia(0.2);
 }
 
-#game-section {
+#game-container {
   display: flex;
   justify-content: space-around;
 }
 
+#banner-game {
+  display: flex;
+  justify-content: center;
+  top: 0;
+}
 #game-div {
   padding: 20px;
+  scale: 1.1;
 }
 
 #game {
@@ -83,11 +113,6 @@ dialog::backdrop {
 .cell.small svg {
   height: 100%; /* Adjust as needed */
   width: 100%; /* Adjust as needed */
-}
-
-.finish {
-  background-image: url(../images/other/exit_4.svg);
-  background-size: cover;
 }
 
 /* ??Possible to keep the svg if player in this cell? */

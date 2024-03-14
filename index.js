@@ -7,6 +7,8 @@ const gameSection = document.getElementById("game-section")
 const scoreContainer = document.getElementById("score-container")
 const scoreSection = document.getElementById("score")
 const pointsContainer = document.getElementById("points-rules")
+const bannerGame = document.getElementById("banner-game")
+const gameCont = document.getElementById("game-container")
 // MODAL
 const modalNextLevel = document.getElementById("dialog-level")
 const modalFinish = document.getElementById("dialog-finish")
@@ -36,9 +38,11 @@ let gameActive = true
 // !! UNCOMMENT WHEN DESIGN OK
 startButton.addEventListener("click", () => {
   welcomeSection.setAttribute("hidden", true)
+  pointsContainer.removeAttribute("hidden")
   scoreContainer.removeAttribute("hidden")
   gameSection.removeAttribute("hidden")
-  pointsContainer.removeAttribute("hidden")
+  bannerGame.removeAttribute("hidden")
+  gameCont.removeAttribute("hidden")
   generateTheBoard()
 })
 
@@ -55,8 +59,6 @@ nextLevelButton.addEventListener("click", goToNextLevel)
 restartButton.addEventListener("click", function () {
   console.log("Restart button clicked");
   restartTheGame();
-
-
 })
 
 
@@ -72,7 +74,10 @@ function endTheGame() {
 
 function closeDialogAfterDelay(dialog, delay) {
   setTimeout(function () {
-    dialog.querySelector('.temp').remove()
+    const tempElement = dialog.querySelector('.temp');
+    if (tempElement) {
+      tempElement.remove();
+    }
     dialog.close();
   }, delay);
 }
@@ -121,7 +126,8 @@ function generateTheBoard() {
       div.classList.add("entry")
     }
     if (state === 3) {
-      div.classList.add("finish")
+      const numSVGs = getRandomInt(1, 3);
+      div.classList.add(`finish` + numSVGs);
     }
     if (state === 4) {
       const numSVGs = getRandomInt(1, 4);
@@ -224,7 +230,6 @@ function generateModal(modal, image) {
   div.classList.add(image, 'temp')
   div.style.height = "100px"
   div.style.width = "100px"
-  // img.src = `./images/${folder}/${image}.svg`
   modal.append(div)
   modal.showModal()
 }

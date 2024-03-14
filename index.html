@@ -9,30 +9,46 @@
   </head>
   <body>
     <header>
-      <h1>Game title</h1>
+      <!-- <h1>Game title</h1> -->
     </header>
     <section id="welcome-section">
-      <ul>
+      <div class="welcome-background">
+        <img src="../images/other/background.png" alt="background" />
+      </div>
+      <!-- <ul>
         <li>Rule-1</li>
         <li>Rule-2</li>
         <li>Rule-3</li>
         <li>Rule-4</li>
-      </ul>
-
-      <button id="start-game">Play</button>
+      </ul> -->
+      <div class="button-welcome">
+        <button id="start-game">PLAY</button>
+        <!-- <button id="story-game">Story</button> -->
+      </div>
     </section>
 
     <!-- !! check because after adding points rules, score and PR are shown on the first page -->
     <section hidden id="game-section">
-      <div hidden id="score-container">
-        <p>Score: <span id="score"></span></p>
+      <div hidden id="banner-game">
+        <svg width="1200" height="180">
+          <image
+            xlink:href="./images/other/gamebanner.svg"
+            width="1200"
+            height="180"
+          />
+        </svg>
       </div>
-      <!-- Works without hidding game-div at first and then make it visible. -->
-      <div id="game-div">
-        <div id="game"></div>
-      </div>
-      <div id="points-container">
-        <div hidden id="points-rules">Points Rules</div>
+      <div hidden id="game-container">
+        <div hidden id="score-container">
+          <p>Score: <span id="score"></span></p>
+        </div>
+        <!-- Works without hidding game-div at first and then make it visible. -->
+        <div id="game-div">
+          <div id="game"></div>
+        </div>
+        <div id="points-container">
+          <div hidden id="points-rules">Points Rules</div>
+        </div>
       </div>
     </section>
 
