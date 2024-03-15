@@ -67,7 +67,6 @@ restartButton.addEventListener("click", function () {
 })
 
 
-
 // !! Check
 function endTheGame() {
   modalEndGame.close()
@@ -217,10 +216,8 @@ function nextCellIsAWall(nextPosition) {
 function foundATreasure() {
   const treasures = ["treasure1", "treasure2", "treasure3", "treasure4"];
   const itsATreasure = treasures.find(treasure => cells[playerPosition].classList.contains(treasure))
-  // if (treasures.some(treasure => cells[playerPosition].classList.contains(treasure))) {
   if (itsATreasure) {
     console.log(itsATreasure);
-    // treasures.forEach(treasure => cells[playerPosition].classList.remove(treasure));
     cells[playerPosition].classList.remove(itsATreasure);
     // ?? check how many points
     score += 15;
