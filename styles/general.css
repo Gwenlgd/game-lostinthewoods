@@ -29,6 +29,11 @@ background: radial-gradient(
   );
 
 */
+@import url("https://fonts.googleapis.com/css2?family=Skranji&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
 
 * {
   box-sizing: border-box;
@@ -37,6 +42,8 @@ a {
   text-decoration: none;
 }
 body {
+  font-family: "Skranji", cursive;
+
   height: 90vh;
   /*? how to stop the repeat at the end of the page? height ok? */
   background: radial-gradient(

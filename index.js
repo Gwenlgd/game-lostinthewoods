@@ -33,7 +33,7 @@ let cells = []
 let playerPosition = 0
 let level = 0
 // !! reput the right starter score
-let score = 5
+let score = 100
 let previousScore = score
 let keyFound = true
 let movementY = 15
@@ -229,7 +229,7 @@ function foundATreasure() {
     //? add the svg displayed for this treasure
     // modalTreasure.showModal()
     generateModal(modalTreasure, itsATreasure)
-    closeDialogAfterDelay(modalTreasure, 1000)
+    closeDialogAfterDelay(modalTreasure, 4000)
   }
 }
 
