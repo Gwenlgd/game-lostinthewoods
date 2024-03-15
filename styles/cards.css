@@ -28,8 +28,15 @@
 
 .card-sco p {
   text-align: center;
-  left: 9%;
+  /* left: 9%; */
   font-weight: bolder;
+}
+
+.instructions {
+  width: 200px;
+  h3 {
+    text-align: center;
+  }
 }
 
 #points-infos {
