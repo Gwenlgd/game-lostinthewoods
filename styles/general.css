@@ -59,6 +59,11 @@ body {
   align-items: center;
 }
 
+.bye-body {
+  display: flex;
+  justify-content: start;
+}
+
 /* .welcome-background svg {
 } */
 
@@ -108,6 +113,10 @@ dialog::backdrop {
 }
 
 #banner-game > #back-home svg {
+  margin-top: 40px;
+}
+
+#banner-game > #bye-home svg {
   margin-top: 40px;
 }
 

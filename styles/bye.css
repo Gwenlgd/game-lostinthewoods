@@ -1,13 +1,18 @@
-#back-home {
+#back-home,
+#bye-home {
   /* height: 20px; */
   background-color: none;
   border: none;
   background-color: transparent;
 }
 
-#back-home .fa-house {
-  color: #f4c205; /* Change the color to red */
-  font-size: 50px; /* Change the font size to 24 pixels */
+#back-home {
+  width: max-content;
+  position: absolute;
+}
+
+#goodbye-section {
+  position: relative;
 }
 
 .bounce-in-top {
