@@ -56,14 +56,19 @@ body {
   display: flex;
   justify-content: center;
 }
+/* .welcome-background svg {
+} */
 
-.welcome-background img,
+.welcome-background svg,
 .goodbye-background img {
-  height: 90vh;
   display: flex;
   justify-content: center;
   position: relative;
   border-radius: 10px;
+}
+
+.goodbye-background img {
+  height: 90vh;
 }
 
 .button-welcome {
