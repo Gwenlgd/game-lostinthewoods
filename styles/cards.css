@@ -4,7 +4,7 @@
 }
 .board-points,
 .board-sco {
-  position: relative;
+  position: sticky;
 }
 
 .card-sco h2 {
