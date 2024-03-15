@@ -113,8 +113,7 @@ dialog::backdrop {
 
 #banner-game {
   display: flex;
-  justify-content: center;
-  top: 0;
+  justify-content: space-around;
 }
 
 #banner-game > #back-home svg {
@@ -134,14 +133,9 @@ dialog::backdrop {
   display: flex;
   flex-wrap: wrap;
   width: 600px;
-  /* border-radius: 25px; */
-  /* background: radial-gradient(
-    circle,
-    rgba(253, 235, 216, 1) 0%,
-    rgba(252, 222, 190, 1) 100%
-  ); */
-  /* height: 560px; */
+  justify-content: start;
 }
+
 .cell {
   height: 40px;
   width: 40px;

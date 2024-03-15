@@ -37,7 +37,7 @@
 .card-sco p {
   text-align: center;
   /* left: 9%; */
-  font-weight: bolder;
+  /* font-weight: bolder; */
 }
 
 .instructions {
@@ -51,33 +51,4 @@
   display: block;
   justify-content: center;
   text-align: center;
-}
-
-@media screen and (max-width: 768px) {
-  .board-points,
-  .board-sco {
-    width: 100%;
-    position: static;
-    margin-bottom: 20px;
-  }
-  .card-point h2 {
-    top: 50%;
-    right: 5%;
-  }
-  .card-point h2 {
-    top: 50%;
-    right: 5%;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .card-point h2 {
-    top: 70%;
-    right: 3%;
-  }
-
-  .card-point h2 {
-    top: 70%;
-    right: 3%;
-  }
 }

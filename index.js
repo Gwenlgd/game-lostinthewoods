@@ -222,50 +222,41 @@ function foundATreasure() {
     console.log(itsATreasure);
     // treasures.forEach(treasure => cells[playerPosition].classList.remove(treasure));
     cells[playerPosition].classList.remove(itsATreasure);
-
     // ?? check how many points
     score += 15;
-    displayScore();
-    //? add the svg displayed for this treasure
-    // modalTreasure.showModal()
     generateModal(modalTreasure, itsATreasure)
-    closeDialogAfterDelay(modalTreasure, 4000)
+    displayScore();
+    closeDialogAfterDelay(modalTreasure, 1000)
   }
-}
-
-function generateModal(modal, image) {
-  const div = document.createElement('div')
-  div.classList.add(image, 'temp')
-  div.style.height = "100px"
-  div.style.width = "100px"
-  modal.append(div)
-  modal.showModal()
 }
 
 function foundHelp() {
   const helps = ["help1", "help2", "help3", "help4", "help5"];
-  if (helps.some(help => cells[playerPosition].classList.contains(help))) {
+  const itsAnHelp = helps.find(help => cells[playerPosition].classList.contains(help))
+
+  if (itsAnHelp) {
     console.log("Resources secured, let's make good use of them!");
-    helps.forEach(help => cells[playerPosition].classList.remove(help));
+    cells[playerPosition].classList.remove(itsAnHelp);
     // ?? check how many points
     score += 10;
+    generateModal(modalHelp, itsAnHelp)
     displayScore();
-    modalHelp.showModal()
     closeDialogAfterDelay(modalHelp, 1000)
   }
 }
 
 function oopsVillain() {
   const villains = ["villain1", "villain2", "villain3", "villain4"];
+  const itsAVillains = villains.find(villain => cells[playerPosition].classList.contains(villain))
 
-  if (villains.some(villain => cells[playerPosition].classList.contains(villain))) {
+  if (itsAVillains) {
     console.log("Oops you encounter a villain");
-    villains.forEach(villain => cells[playerPosition].classList.remove(villain));
+    cells[playerPosition].classList.remove(itsAVillains);
     // ?? remove the score if found it or end of the game ?
     // ?? check how many points
     score -= 50;
+    generateModal(modalVillains, itsAVillains)
     displayScore();
-    modalVillains.showModal()
     closeDialogAfterDelay(modalVillains, 1000)
   }
 }
@@ -282,9 +273,23 @@ function foundTheKey() {
     console.log("+ 25 points");
     displayScore();
     modalKeyFound.showModal()
-    closeDialogAfterDelay(modalKeyFound, 1000)
+    closeDialogAfterDelay(modalKeyFound, 300000)
   }
 }
+
+function generateModal(modal, image) {
+  const div = document.createElement('div')
+  div.classList.add(image, 'temp')
+  div.style.height = "100px"
+  div.style.width = "100px"
+  const containerInner = modal.querySelector(".container-inner");
+  const content = containerInner.querySelector(".content");
+  const contentImgDiv = content.querySelector(".content-img");
+  contentImgDiv.appendChild(div)
+  // content.insertBefore(div, pElement);
+  modal.showModal()
+}
+
 
 function move(direction) {
   if (!gameActive) return

@@ -53,11 +53,11 @@
             </svg>
           </a>
         </button>
-        <svg width="1200" height="180">
+        <svg width="900" height="160">
           <image
-            xlink:href="./images/other/gamebanner.svg"
-            width="1200"
-            height="180"
+            xlink:href="./images/other/bannergame3.svg"
+            width="900"
+            height="160"
           />
         </svg>
         <button id="bye-home">
@@ -76,25 +76,34 @@
         <div hidden id="score-container">
           <div class="card-sco">
             <div class="svg-title">
-            <svg class="board-sco" width="300" height="200">
-              <image
-                xlink:href="./images/other/board.svg"
-                width="300"
-                height="240"
-              />
-            </svg>
-            <h2>SCORE</h2>
-          </div>
+              <svg class="board-sco" width="300" height="200">
+                <image
+                  xlink:href="./images/other/board.svg"
+                  width="300"
+                  height="240"
+                />
+              </svg>
+              <h2>SCORE</h2>
+            </div>
             <div class="instructions">
-            <p><span id="score"></span></p>
-            <h3>What you need to do</h3>
+              <p><span id="score"></span></p>
+              <br />
+              <h3>What you need to do</h3>
+              <br />
               <p>Nicole got lost in the forest</p>
+              <br />
               <p>You are going to help Toto to find here</p>
+              <br />
               <p>Sometimes, you will need to find her backpack first !</p>
-              <p>Last thing, be careful if you see a monkey, they are going to stole your things</p>
+              <br />
+              <p>
+                Last thing, be careful if you see a monkey, they are going to
+                stole your things
+              </p>
             </div>
           </div>
         </div>
+
         <!-- Works without hidding game-div at first and then make it visible. -->
         <div id="game-div">
           <div id="game"></div>
@@ -103,148 +112,151 @@
           <div hidden id="points-rules">
             <div class="card-point">
               <div class="svg-title">
-              <svg class="board-points" width="300" height="200">
-                <image
-                  xlink:href="./images/other/board.svg"
-                  width="300"
-                  height="240"
-                />
-              </svg>
-              <h2>POINTS</h2>
-            </div>
-            <div id="points-infos">
-              <div id="points-treasure">
-                <h3>Treasures : + 15 points</h3>
-                <div class="treasure-svg">
-                  <svg width="40" height="40">
-                    <image
-                      xlink:href="./images/treasures/treasure_1.svg"
-                      width="40"
-                      height="40"
-                    />
-                  </svg>
-                  <svg width="40" height="40">
-                    <image
-                      xlink:href="./images/treasures/treasure_2.svg"
-                      width="40"
-                      height="40"
-                    />
-                  </svg>
-                  <svg width="40" height="40">
-                    <image
-                      xlink:href="./images/treasures/treasure_3.svg"
-                      width="40"
-                      height="40"
-                    />
-                  </svg>
-                  <svg width="40" height="40">
-                    <image
-                      xlink:href="./images/treasures/treasure_4.svg"
-                      width="40"
-                      height="40"
-                    />
-                  </svg>
-                </div>
+                <svg class="board-points" width="300" height="200">
+                  <image
+                    xlink:href="./images/other/board.svg"
+                    width="300"
+                    height="240"
+                  />
+                </svg>
+                <h2>POINTS</h2>
               </div>
-              <div id="points-help">
-                <h3>Help : + 10 points</h3>
-                <div class="help-svg">
-                  <svg width="40" height="40">
-                    <image
-                      xlink:href="./images/help/help_1.svg"
-                      width="40"
-                      height="40"
-                    />
-                  </svg>
-                  <svg width="40" height="40">
-                    <image
-                      xlink:href="./images/help/help_2.svg"
-                      width="40"
-                      height="40"
-                    />
-                  </svg>
-                  <svg width="40" height="40">
-                    <image
-                      xlink:href="./images/help/help_3.svg"
-                      width="40"
-                      height="40"
-                    />
-                  </svg>
-                  <svg width="40" height="40">
-                    <image
-                      xlink:href="./images/help/help_4.svg"
-                      width="40"
-                      height="40"
-                    />
-                  </svg>
-                  <svg width="40" height="40">
-                    <image
-                      xlink:href="./images/help/help_5.svg"
-                      width="40"
-                      height="40"
-                    />
-                  </svg>
+              <div id="points-infos">
+                <div id="points-treasure">
+                  <h3>Treasures : + 15 points</h3>
+                  <div class="treasure-svg">
+                    <svg width="40" height="40">
+                      <image
+                        xlink:href="./images/treasures/treasure_1.svg"
+                        width="40"
+                        height="40"
+                      />
+                    </svg>
+                    <svg width="40" height="40">
+                      <image
+                        xlink:href="./images/treasures/treasure_2.svg"
+                        width="40"
+                        height="40"
+                      />
+                    </svg>
+                    <svg width="40" height="40">
+                      <image
+                        xlink:href="./images/treasures/treasure_3.svg"
+                        width="40"
+                        height="40"
+                      />
+                    </svg>
+                    <svg width="40" height="40">
+                      <image
+                        xlink:href="./images/treasures/treasure_4.svg"
+                        width="40"
+                        height="40"
+                      />
+                    </svg>
                   </div>
-              </div>
-              <div id="points-keys">
-                <h3>One backpack : + 10 points</h3>
-                <div class="keys-svg">
-                  <svg width="40" height="40">
-                    <image
-                      xlink:href="./images/keys/key_5.svg"
-                      width="40"
-                      height="40"
-                    />
-                  </svg>
-                  <svg width="40" height="40">
-                    <image
-                      xlink:href="./images/keys/key_6.svg"
-                      width="40"
-                      height="40"
-                    />
-                  </svg>
-                  <svg width="40" height="40">
-                    <image
-                      xlink:href="./images/keys/key_7.svg"
-                      width="40"
-                      height="40"
-                    />
-                  </svg>
-                  <svg width="40" height="40">
-                    <image
-                      xlink:href="./images/keys/key_8.svg"
-                      width="40"
-                      height="40"
-                    />
-                  </svg>
-              </div>
-              <div id="points-villains">
-                <h3>Monkeys : - 50 points</h3>
-                <div class="monkeys-svg">
-                  <svg width="40" height="40">
-                    <image
-                      xlink:href="./images/villains/villain.svg"
-                      width="40"
-                      height="40"
-                    />
-                  </svg>
-                  <svg width="40" height="40">
-                    <image
-                      xlink:href="./images/villains/villain_2.svg"
-                      width="40"
-                      height="40"
-                    />
-                  </svg>
-                  <svg width="40" height="40">
-                    <image
-                      xlink:href="./images/villains/villain_3.svg"
-                      width="40"
-                      height="40"
-                    />
-                  </svg>
-              </div>
-              <div id="points-steps">
-                <h3>- 2 points / step</h3>
+                </div>
+                <div id="points-help">
+                  <h3>Help : + 10 points</h3>
+                  <div class="help-svg">
+                    <svg width="40" height="40">
+                      <image
+                        xlink:href="./images/help/help_1.svg"
+                        width="40"
+                        height="40"
+                      />
+                    </svg>
+                    <svg width="40" height="40">
+                      <image
+                        xlink:href="./images/help/help_2.svg"
+                        width="40"
+                        height="40"
+                      />
+                    </svg>
+                    <svg width="40" height="40">
+                      <image
+                        xlink:href="./images/help/help_3.svg"
+                        width="40"
+                        height="40"
+                      />
+                    </svg>
+                    <svg width="40" height="40">
+                      <image
+                        xlink:href="./images/help/help_4.svg"
+                        width="40"
+                        height="40"
+                      />
+                    </svg>
+                    <svg width="40" height="40">
+                      <image
+                        xlink:href="./images/help/help_5.svg"
+                        width="40"
+                        height="40"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div id="points-keys">
+                  <h3>One backpack : + 10 points</h3>
+                  <div class="keys-svg">
+                    <svg width="40" height="40">
+                      <image
+                        xlink:href="./images/keys/key_5.svg"
+                        width="40"
+                        height="40"
+                      />
+                    </svg>
+                    <svg width="40" height="40">
+                      <image
+                        xlink:href="./images/keys/key_6.svg"
+                        width="40"
+                        height="40"
+                      />
+                    </svg>
+                    <svg width="40" height="40">
+                      <image
+                        xlink:href="./images/keys/key_7.svg"
+                        width="40"
+                        height="40"
+                      />
+                    </svg>
+                    <svg width="40" height="40">
+                      <image
+                        xlink:href="./images/keys/key_8.svg"
+                        width="40"
+                        height="40"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div id="points-villains">
+                  <h3>Monkeys : - 50 points</h3>
+                  <div class="monkeys-svg">
+                    <svg width="40" height="40">
+                      <image
+                        xlink:href="./images/villains/villain.svg"
+                        width="40"
+                        height="40"
+                      />
+                    </svg>
+                    <svg width="40" height="40">
+                      <image
+                        xlink:href="./images/villains/villain_2.svg"
+                        width="40"
+                        height="40"
+                      />
+                    </svg>
+                    <svg width="40" height="40">
+                      <image
+                        xlink:href="./images/villains/villain_3.svg"
+                        width="40"
+                        height="40"
+                      />
+                    </svg>
+                  </div>
+                  <div id="points-steps">
+                    <h3>- 2 points / step</h3>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -254,65 +266,177 @@
 
     <!-- TREASURES MESSAGE -->
     <dialog id="dialog-treasure">
-      <!-- show the svg of the treasure? -->
-    <div class="container-inner">
-      <div class="content">
-        <p>Treasure found! Well done, adventurer!</p>
-        <p>+ 15 points</p>
+      <div class="container-inner">
+        <div class="content">
+          <div class="content-img">
+            <svg width="150" height="150">
+              <image
+                xlink:href="./images/dialog/yay1.svg"
+                width="150"
+                height="150"
+              />
+            </svg>
+          </div>
+          <p>Treasure found! Well done, adventurer!</p>
+          <p>+ 15 points</p>
+        </div>
       </div>
-    </div>
     </dialog>
 
     <!-- NEED THE KEY MESSAGE -->
     <dialog id="key-needed">
-      <p>You need to find Nicole's backpack first</p>
+      <div class="container-inner">
+        <div class="content">
+          <div class="content-img">
+            <svg width="150" height="150">
+              <image
+                xlink:href="./images/dialog/yay1.svg"
+                width="150"
+                height="150"
+              />
+            </svg>
+          </div>
+          <p>You need to find Nicole's backpack first</p>
+        </div>
+      </div>
     </dialog>
 
     <!-- KEY FOUND MESSAGE -->
     <dialog id="dialog-key">
-      <!-- show the svg of the treasure? -->
-      <p>Yay you found the key</p>
-      <p>+ 25 points</p>
+      <div class="container-inner">
+        <div class="content">
+          <div class="content-img">
+            <svg width="150" height="150">
+              <image
+                xlink:href="./images/dialog/yay1.svg"
+                width="150"
+                height="150"
+              />
+            </svg>
+          </div>
+          <p>Yay you found Nicole's backpack</p>
+          <p>+ 25 points</p>
+        </div>
+      </div>
     </dialog>
 
     <!-- VILLAINS MESSAGE -->
     <dialog id="dialog-villains">
-      <!-- show the svg of the treasure? -->
-      <p>Looks like we've got company!</p>
-      <p>- 50 points</p>
+      <div class="container-inner">
+        <div class="content">
+          <div class="content-img">
+            <svg width="150" height="150">
+              <image
+                xlink:href="./images/dialog/yay1.svg"
+                width="150"
+                height="150"
+              />
+            </svg>
+          </div>
+          <p>Looks like we've got company!</p>
+          <p>- 50 points</p>
+        </div>
+      </div>
     </dialog>
 
     <!-- HELP MESSAGE -->
     <dialog id="dialog-help">
-      <!-- show the svg of the treasure? -->
-      <p>Resources secured, let's make good use of them!</p>
-      <p>+ 10 points</p>
+      <div class="container-inner">
+        <div class="content">
+          <div class="content-img">
+            <svg width="150" height="150">
+              <image
+                xlink:href="./images/dialog/yay1.svg"
+                width="150"
+                height="150"
+              />
+            </svg>
+          </div>
+          <p>Resources secured, let's make good use of them!</p>
+          <p>+ 10 points</p>
+        </div>
+      </div>
     </dialog>
+
     <!-- LEVEL MESSAGE -->
     <dialog id="dialog-level">
-      <p>Congrats, -nameofthehero- found is way out!</p>
-      <p>Your score: <span></span></p>
-      <button id="next-level">Next Level</button>
-      <button id="quit-game">Quit</button>
+      <div class="container-inner">
+        <div class="content">
+          <div class="content-img">
+            <svg width="150" height="150">
+              <image
+                xlink:href="./images/dialog/yay1.svg"
+                width="150"
+                height="150"
+              />
+            </svg>
+          </div>
+          <p>Congrats, Toto found Nicole!</p>
+          <p>Your score: <span></span></p>
+          <button id="next-level">Next Level</button>
+          <button id="quit-game">Quit</button>
+        </div>
+      </div>
     </dialog>
 
     <!-- END GAME MESSAGE -->
     <dialog id="dialog-endgame">
-      <p>See you next time !</p>
+      <div class="container-inner">
+        <div class="content">
+          <div class="content-img">
+            <svg width="150" height="150">
+              <image
+                xlink:href="./images/dialog/yay1.svg"
+                width="150"
+                height="150"
+              />
+            </svg>
+          </div>
+          <p>See you next time !</p>
+        </div>
+      </div>
     </dialog>
 
     <!-- GAMEOVER MESSAGE -->
     <dialog id="dialog-gameover">
-      <p>Game Over! Your score is 0.</p>
-      <button id="restart-game">Restart ?</button>
-      <button id="end-game">Quit</button>
+      <div class="container-inner">
+        <div class="content">
+          <div class="content-img">
+            <svg width="150" height="150">
+              <image
+                xlink:href="./images/dialog/yay1.svg"
+                width="150"
+                height="150"
+              />
+            </svg>
+          </div>
+          <p>Game Over! Your score is 0.</p>
+          <button id="restart-game">Restart ?</button>
+          <button id="end-game">Quit</button>
+        </div>
+      </div>
     </dialog>
 
     <!-- FINISH MESSAGE -->
     <dialog id="dialog-finish">
-      <p>Congrats, you have finished !</p>
-      <!-- <p>Your score: <span></span></p> -->
-      <button id="end-game">Quit</button>
+      <div class="container-inner">
+        <div class="content">
+          <div class="content-img">
+            <svg width="150" height="150">
+              <image
+                xlink:href="./images/dialog/yay1.svg"
+                width="150"
+                height="150"
+              />
+            </svg>
+          </div>
+          <p>Congrats, you have finished !</p>
+          <!-- <p>Your score: <span></span></p> -->
+          <button id="end-game">Quit</button>
+        </div>
+      </div>
     </dialog>
+
+    <!-- END BODY -->
   </body>
 </html>
