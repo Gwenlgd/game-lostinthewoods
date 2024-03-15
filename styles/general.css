@@ -53,9 +53,12 @@ body {
 }
 .welcome-background,
 .goodbye-background {
+  height: 90vh;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
+
 /* .welcome-background svg {
 } */
 
@@ -63,6 +66,7 @@ body {
 .goodbye-background img {
   display: flex;
   justify-content: center;
+  align-items: center;
   position: relative;
   border-radius: 10px;
 }
