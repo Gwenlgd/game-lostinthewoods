@@ -273,7 +273,7 @@ function foundTheKey() {
     console.log("+ 25 points");
     displayScore();
     modalKeyFound.showModal()
-    closeDialogAfterDelay(modalKeyFound, 300000)
+    closeDialogAfterDelay(modalKeyFound, 1000)
   }
 }
 
