@@ -10,6 +10,11 @@
   position: absolute;
 }
 
+.bye-svg {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
 #goodbye-section {
   position: relative;
   display: flex;
