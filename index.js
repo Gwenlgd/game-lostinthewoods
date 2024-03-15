@@ -33,7 +33,7 @@ let cells = []
 let playerPosition = 0
 let level = 0
 // !! reput the right starter score
-let score = 100
+let score = 120
 let previousScore = score
 let keyFound = true
 let movementY = 15
@@ -100,6 +100,7 @@ function restartTheGame() {
 }
 
 function goToNextLevel() {
+  score += previousScore
   playerPosition = 0
   cells = []
   gameContainer.innerHTML = ""
@@ -111,7 +112,6 @@ function goToNextLevel() {
 
 function generateTheBoard() {
   const map = maps[level]
-  // score += 5
   for (let i = 0; i < map.length; i++) {
     const state = map[i]
     const div = document.createElement("div")
@@ -120,7 +120,7 @@ function generateTheBoard() {
       div.classList.add("small")
       movementY = 30
       // Working? More steps?
-      // score = 1000
+      score = 400
     } else {
       movementY = 15
     }
@@ -254,7 +254,7 @@ function oopsVillain() {
     cells[playerPosition].classList.remove(itsAVillains);
     // ?? remove the score if found it or end of the game ?
     // ?? check how many points
-    score -= 50;
+    score -= 30;
     generateModal(modalVillains, itsAVillains)
     displayScore();
     closeDialogAfterDelay(modalVillains, 1000)
@@ -327,7 +327,7 @@ function move(direction) {
 
   if (theGameIsFinished()) {
     level++
-    previousScore = score
+    previousScore += score
     if (level === maps.length) {
       modalFinish.showModal()
       return
@@ -347,7 +347,7 @@ function theGameIsFinished() {
   if (itsAnExit && keyFound === false) {
     console.log("You need the key to exit")
     modalKeyNeeded.showModal();
-    closeDialogAfterDelay(modalKeyNeeded, 1000)
+    closeDialogAfterDelay(modalKeyNeeded, 1500)
     return false
   } else if (itsAnExit && keyFound) {
     return true
