@@ -6,13 +6,17 @@
   background-color: transparent;
 }
 
-#back-home {
-  width: max-content;
+#back-home image {
   position: absolute;
 }
 
 #goodbye-section {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 50px;
+  margin-top: -50px;
 }
 
 .bounce-in-top {
