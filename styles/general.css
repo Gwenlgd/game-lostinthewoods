@@ -126,8 +126,8 @@ dialog::backdrop {
 }
 
 #game-div {
-  padding: 20px;
-  scale: 1.1;
+  /* padding: 20px; */
+  scale: 0.9;
 }
 
 #game {

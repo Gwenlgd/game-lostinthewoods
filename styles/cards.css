@@ -2,28 +2,36 @@
 #points-container {
   margin-top: -75px;
 }
-.board-points,
-.board-sco {
-  position: sticky;
+
+.svg-title {
+  position: relative;
 }
 
-.card-sco h2 {
+.svg-title h2 {
   position: absolute;
-  top: 22.5%;
-  left: 11%;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
   color: white;
 }
 
-.card-point h2 {
+/* .card-point h2 {
   position: absolute;
   top: 22.5%;
   right: 11%;
   color: white;
-}
+} */
 
 #score {
   font-size: 40px;
   text-align: center;
+}
+
+.card-sco {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .card-sco p {
