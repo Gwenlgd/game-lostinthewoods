@@ -62,7 +62,7 @@ quitGame.addEventListener("click", function () {
 nextLevelButton.addEventListener("click", goToNextLevel)
 
 restartButton.addEventListener("click", function () {
-  console.log("Restart button clicked");
+  // console.log("Restart button clicked");
   restartTheGame();
 })
 
@@ -95,10 +95,11 @@ function restartTheGame() {
   gameContainer.innerHTML = ""
   modalGameOver.close()
   generateTheBoard()
-  console.log("Restart button clicked");
+  // console.log("Restart button clicked");
 }
 
 function goToNextLevel() {
+
   score += previousScore
   playerPosition = 0
   cells = []
@@ -184,7 +185,7 @@ function displayScore() {
 }
 
 document.addEventListener("keydown", (event) => {
-  console.log(event.key)
+  // console.log(event.key)
   event.preventDefault()
   switch (event.key) {
     case "ArrowRight":
@@ -217,13 +218,13 @@ function foundATreasure() {
   const treasures = ["treasure1", "treasure2", "treasure3", "treasure4"];
   const itsATreasure = treasures.find(treasure => cells[playerPosition].classList.contains(treasure))
   if (itsATreasure) {
-    console.log(itsATreasure);
+    // console.log(itsATreasure);
     cells[playerPosition].classList.remove(itsATreasure);
     // ?? check how many points
     score += 15;
     generateModal(modalTreasure, itsATreasure)
     displayScore();
-    closeDialogAfterDelay(modalTreasure, 1000)
+    closeDialogAfterDelay(modalTreasure, 2400)
   }
 }
 
@@ -232,13 +233,13 @@ function foundHelp() {
   const itsAnHelp = helps.find(help => cells[playerPosition].classList.contains(help))
 
   if (itsAnHelp) {
-    console.log("Resources secured, let's make good use of them!");
+    // console.log("Resources secured, let's make good use of them!");
     cells[playerPosition].classList.remove(itsAnHelp);
     // ?? check how many points
     score += 10;
     generateModal(modalHelp, itsAnHelp)
     displayScore();
-    closeDialogAfterDelay(modalHelp, 1000)
+    closeDialogAfterDelay(modalHelp, 2400)
   }
 }
 
@@ -247,14 +248,14 @@ function oopsVillain() {
   const itsAVillains = villains.find(villain => cells[playerPosition].classList.contains(villain))
 
   if (itsAVillains) {
-    console.log("Oops you encounter a villain");
+    // console.log("Oops you encounter a villain");
     cells[playerPosition].classList.remove(itsAVillains);
     // ?? remove the score if found it or end of the game ?
     // ?? check how many points
     score -= 30;
     generateModal(modalVillains, itsAVillains)
     displayScore();
-    closeDialogAfterDelay(modalVillains, 1000)
+    closeDialogAfterDelay(modalVillains, 2500)
   }
 }
 
@@ -263,14 +264,14 @@ function foundTheKey() {
 
   if (keys.some(key => cells[playerPosition].classList.contains(key))) {
     keyFound = true
-    console.log("Yay you found the key");
+    // console.log("Yay you found the key");
     keys.forEach(key => cells[playerPosition].classList.remove(key));
     // ?? check how many points
     score += 25;
-    console.log("+ 25 points");
+    // console.log("+ 25 points");
     displayScore();
     modalKeyFound.showModal()
-    closeDialogAfterDelay(modalKeyFound, 1000)
+    closeDialogAfterDelay(modalKeyFound, 3000)
   }
 }
 
@@ -283,7 +284,6 @@ function generateModal(modal, image) {
   const content = containerInner.querySelector(".content");
   const contentImgDiv = content.querySelector(".content-img");
   contentImgDiv.appendChild(div)
-  // content.insertBefore(div, pElement);
   modal.showModal()
 }
 
@@ -342,9 +342,9 @@ function theGameIsFinished() {
   const exits = ["finish1", "finish2", "finish3"];
   const itsAnExit = exits.find(exit => cells[playerPosition].classList.contains(exit));
   if (itsAnExit && keyFound === false) {
-    console.log("You need the key to exit")
+    // console.log("You need the key to exit")
     modalKeyNeeded.showModal();
-    closeDialogAfterDelay(modalKeyNeeded, 1500)
+    closeDialogAfterDelay(modalKeyNeeded, 2500)
     return false
   } else if (itsAnExit && keyFound) {
     return true
@@ -353,7 +353,7 @@ function theGameIsFinished() {
 
 function gameOver() {
   if (score <= 0) {
-    console.log("Score is zero or negative");
+    // console.log("Score is zero or negative");
     // score = 5
     gameActive = false;
     modalGameOver.showModal()    // ??add a message when game over (in html ?)
